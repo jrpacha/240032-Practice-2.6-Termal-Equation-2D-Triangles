@@ -58,14 +58,13 @@ u=zeros(numNodes,1);
 u(indT)= tempTopBot;
 u(indB)= tempTopBot;
 u(indC)= tempCircle;
-Fm = F(freeNodes) - K(freeNodes,fixedNodes)*u(fixedNodes);
 
 %Natural B.C:
-Q(freeNodes)=0.0;
+Q(freeNodes)=0.0; !all them are zero
 
 %Reduced system
+Fm = F(freeNodes) + Q(freeNodes) - K(freeNodes,fixedNodes)*u(fixedNodes);
 Km = K(freeNodes,freeNodes);
-Fm = Fm + Q(freeNodes);
 
 %Compute the solution
 um = Km\Fm;
