@@ -70,8 +70,15 @@ Km = K(freeNodes,freeNodes);
 um = Km\Fm;
 u(freeNodes)= um;
 
-%PostProcess: Compute secondary variables and plot results
+%PostProcess: Compute secondary variables, table and plot results
 Q = K*u - F;
+
+table = [(1:numNodes)',nodes(:,1),nodes(:,2),u,Q];
+fmt1 ='%4s%9s%14s%14s%14s\n';
+fmt2 ='%4d%14.5e%14.5e%14.5e%14.5e\n';
+fprintf(fmt1,'Node','X','Y','U','Q')
+fprintf(fmt2,table')
+
 titol='Temperature Distribution';
 colorScale='jet';
 plotContourSolution(nodes,elem,u,titol,colorScale);
@@ -87,11 +94,13 @@ for e=1:numElem
     if (isInside > 0)
         pElem = e;
         numNodElem= elem(e,:);
+        tempP = alphas*u(numNodElem);
         break;
     end
 end
 
-tempP = alphas*u(numNodElem);
-fprintf('Point P = (%.1f,%.1f) belongs to element number: %d\n',p,pElem)
-fprintf('Number of nodes of elem %d: %d, %d, %d\n',pElem,numNodElem)
-fprintf('Interpolated temperature at point P: %.4e\n',tempP)
+fprintf(' ====================== Exercise 1 =========================\n' )
+fprintf(' Point P = (%.1f,%.1f) belongs to element number: %d\n',p,pElem)
+fprintf(' Number of nodes of elem %d: %d, %d, %d\n',pElem,numNodElem)
+fprintf(' Interpolated temperature at point P: %.5e%cC\n',tempP,char(176))
+fprintf(' ===========================================================\n' )
