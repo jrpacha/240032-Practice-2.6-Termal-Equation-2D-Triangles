@@ -1,6 +1,4 @@
-# matlabSession-240032_19-11-2019
-
-## Matlab session Tuesday 19-11-2019
+# 240032 Practice 2.5
 
 ### P2.5 - Thermal Equation (2D linear triangles)
 
