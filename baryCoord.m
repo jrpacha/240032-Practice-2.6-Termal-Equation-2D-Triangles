@@ -1,10 +1,10 @@
 function [alphas, isInside]=baryCoord(V, point)
-%BARYCOORD
+%BARYCOORD.M
 %Compute the triangular barycentric coordinates of the a point
 %INPUT
-%      V (array 3x2): array holding the coordinates of the vertexs of
-%                     the triangle V=[x1,y1;x2,y2;x3,y3].
-%  point (array 1x2): array holding the coordinates of the point.
+%      V (array 3x2): array holding the coordinates of the vertexs of the
+%                    triangle V=[x1,y1;x2,y2;x3,y3].
+%  point (array 1x2): array holding the coordinate of the point.
 %
 %OUTPUT
 % alphas (array 1x3): array holding the barycentric coordinates of the 
@@ -34,7 +34,7 @@ alpha3=Psi3(point(1,1),point(1,2));
 
 alphas=[alpha1,alpha2,alpha3];
 
-if (min(alphas) < 0) %at least one of the alphas is negative
+if (min(alphas) < -1.0e-10) %at least one of the alphas is negative
     isInside=0;
 end
 
