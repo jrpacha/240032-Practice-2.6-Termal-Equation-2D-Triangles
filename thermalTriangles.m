@@ -60,7 +60,7 @@ u(indB)= tempTopBot;
 u(indC)= tempCircle;
 
 %Natural B.C:
-Q(freeNodes)=0.0; !all them are zero
+Q(freeNodes)=0.0; % !all them are zero
 
 %Reduced system
 Fm = F(freeNodes) + Q(freeNodes) - K(freeNodes,fixedNodes)*u(fixedNodes);
