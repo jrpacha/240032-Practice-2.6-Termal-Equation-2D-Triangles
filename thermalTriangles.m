@@ -53,14 +53,14 @@ end
 fixedNodes= [indT', indB', indC'];         %fixed Nodes (global numbering)
 freeNodes= setdiff(1:numNodes,fixedNodes); %free Nodes (global numbering)
 
+%Natural B.C:
+Q(freeNodes)=0.0; % !all them are zero
+
 % Essential B.C.
 u=zeros(numNodes,1);
 u(indT)= tempTopBot;
 u(indB)= tempTopBot;
 u(indC)= tempCircle;
-
-%Natural B.C:
-Q(freeNodes)=0.0; % !all them are zero
 
 %Reduced system
 Fm = F(freeNodes) + Q(freeNodes) - K(freeNodes,fixedNodes)*u(fixedNodes);
@@ -91,7 +91,7 @@ p= [0.5, 0.8];
 for e=1:numElem
     vertexs= nodes(elem(e,:),:);
     [alphas,isInside] = baryCoord(vertexs,p);
-    if (isInside > 0)
+    if (isInside >= 1)
         pElem = e;
         numNodElem= elem(e,:);
         tempP = alphas*u(numNodElem);
