@@ -1,7 +1,9 @@
 clearvars
 close all
 
-eval('CircleHolemesh01')
+%eval('CircleHolemesh01');
+load CircleHolemesh01.mat %Load the nodes and the connectivity matrix from 
+                          %a .mat file
 tempCircle= 50;
 tempTopBot= 10;
 
