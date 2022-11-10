@@ -1,9 +1,9 @@
-# 240032 Practice 2.5
+# 240032 Practice 2.6
 
 ### P2.5 - Thermal Equation (2D linear triangles)
 
 You can find the session's guide ---together with other extra material files---,
-at Toni Susin's 'Numerical Factory', 
+at professor Toni Susin's 'Numerical Factory', 
 
 https://numfactory.upc.edu/web/FiniteElements.html
 
