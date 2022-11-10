@@ -85,8 +85,9 @@ titol='Temperature Distribution';
 colorScale='jet';
 plotContourSolution(nodes,elem,u,titol,colorScale);
 
-
+%
 %Exercise 1:
+%
 %Compute the temperature for the point p=[0.5, 0.8].
 p= [0.5, 0.8];
 
