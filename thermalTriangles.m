@@ -11,7 +11,7 @@ numNodes= size(nodes,1);
 numElem= size(elem,1);
 
 numbering= 0; %= 1 shows nodes and element numbering
-plotElements(nodes,elem,numbering)
+plotElementsOld(nodes,elem,numbering)
 
 %Select Boundary points
 indT= find(nodes(:,2) > 0.99); %indices of the nodes at the top boundary
@@ -78,6 +78,7 @@ Q = K*u - F;
 table = [(1:numNodes)',nodes(:,1),nodes(:,2),u,Q];
 fmt1 ='%4s%9s%14s%14s%14s\n';
 fmt2 ='%4d%14.5e%14.5e%14.5e%14.5e\n';
+clc
 fprintf(fmt1,'Node','X','Y','U','Q')
 fprintf(fmt2,table')
 
@@ -102,6 +103,8 @@ for e=1:numElem
     end
 end
 
+
+fprintf('\n')
 fprintf(' ====================== Exercise 1 =========================\n' )
 fprintf(' Point P = (%.1f,%.1f) belongs to element number: %d\n',p,pElem)
 fprintf(' Number of nodes of elem %d: %d, %d, %d\n',pElem,numNodElem)
